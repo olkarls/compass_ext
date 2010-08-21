@@ -1,4 +1,19 @@
-=rounded($radius = 10)
-  -moz-border-radius: #{$radius}px
-  -webkit-border-radius: #{$radius}px
-  border-radius: #{$radius}px
+=rounded($top_left = 10, $top_right = $top_left, $bottom_right = $top_left, $bottom_left = $top_left)
+  @if $top_left == $top_right && bottom_right == $top_left && bottom_left == $top_left {
+    -moz-border-radius: #{$radius}px
+    -webkit-border-radius: #{$radius}px
+    border-radius: #{$radius}px
+  } else {
+    -webkit-border-top-left-radius:     #{$top_left}px;
+    -webkit-border-top-right-radius:    #{$top_right}px;
+    -webkit-border-bottom-right-radius: #{$bottom_right}px;
+    -webkit-border-bottom-left-radius:  #{$bottom_left}px;
+    -moz-border-radius-topleft:         #{$top_left}px;
+    -moz-border-radius-topright:        #{$top_right}px;
+    -moz-border-radius-bottomright:     #{$bottom_right}px;
+    -moz-border-radius-bottomleft:      #{$bottom_left}px;
+    border-top-left-radius:             #{$top_left}px;
+    border-top-right-radius:            #{$top_right}px;
+    border-bottom-right-radius:         #{$bottom_right}px;
+    border-bottom-left-radius:          #{$bottom_left}px; 
+  }
